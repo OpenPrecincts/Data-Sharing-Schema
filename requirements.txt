@@ -1,0 +1,14 @@
+GDAL>=2
+geopandas>=0.4
+mercantile
+Rtree
+Shapely
+pandas
+pyproj
+Fiona
+pytz
+numpy
+click-plugins
+cligj
+munch
+python-dateutil

@@ -82,7 +82,7 @@ def format_func(meters, _):
     
     return '{deg:+.3f}°'.format(deg=degrees)
 
-def shapes_plot(shapes, size=(9, 6), bounds=None):
+def plot_shapes(shapes, size=(9, 6), bounds=None):
     ''' Create a simple locator map for shapes from a feed
     '''
     figure, plot = matplotlib.pyplot.subplots(figsize=size)
@@ -93,7 +93,7 @@ def shapes_plot(shapes, size=(9, 6), bounds=None):
 
     return finish_plot(plot, bounds)
 
-def parties_plot(shapes, size=(9, 6), bounds=None):
+def plot_parties(shapes, size=(9, 6), bounds=None):
     ''' Create a simple locator map for partisan shapes from a feed
     '''
     _, plot = matplotlib.pyplot.subplots(figsize=size)
@@ -142,5 +142,5 @@ def main_feed():
     
     args = parser.parse_args()
     feed = load_feed(args.feed_path)
-    plot = shapes_plot(feed.shapes, size=(8, 10))
+    plot = plot_shapes(feed.shapes, size=(8, 10))
     plot.figure.savefig(args.preview_path)

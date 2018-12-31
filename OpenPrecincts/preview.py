@@ -2,6 +2,9 @@ import logging, argparse
 import contextily, matplotlib.pyplot, matplotlib.ticker, mercantile
 from . import load_feed
 
+# Constant strings found in data feeds
+DEM, REP, YES, NO = 'Dem', 'Rep', 'Yes', 'No'
+
 MAP_URL = contextily.sources.ST_TONER_LITE
 MAP_URL = 'https://cartodb-basemaps-a.global.ssl.fastly.net/light_nolabels/tileZ/tileX/tileY.png'
 
@@ -84,14 +87,40 @@ def shapes_plot(shapes, size=(9, 6), bounds=None):
     '''
     figure, plot = matplotlib.pyplot.subplots(figsize=size)
     
+    mercs = shapes.to_crs(epsg=3857)
+    mercs.plot(ax=plot, color='#ff990020')
+    mercs.boundary.plot(ax=plot, color='#00000080', linestyle='dotted', linewidth=1)
+
+    return finish_plot(plot, bounds)
+
+def parties_plot(shapes, size=(9, 6), bounds=None):
+    ''' Create a simple locator map for partisan shapes from a feed
+    '''
+    _, plot = matplotlib.pyplot.subplots(figsize=size)
+    
+    mercs = shapes.to_crs(epsg=3857)
+    party = mercs.candidate_party
+    
+    if (party == DEM).any():
+        mercs[party == DEM].plot(ax=plot, color='#0049a899')
+
+    if (party == REP).any():
+        mercs[party == REP].plot(ax=plot, color='#c71c3699')
+
+    if ((party != DEM) & (party != REP)).any():
+        mercs[(party != DEM) & (party != REP)].plot(ax=plot, color='#6d5c6599')
+
+    mercs.boundary.plot(ax=plot, color='#ffffff80', linestyle='dotted', linewidth=1)
+    
+    return finish_plot(plot, bounds)
+
+def finish_plot(plot, bounds):
+    '''
+    '''
     plot.set_aspect('equal')
     
     if bounds is not None:
         plot.axis(get_axis_viewport(*bounds))
-    
-    mercs = shapes.to_crs(epsg=3857)
-    mercs.plot(ax=plot, color='#ff990020')
-    mercs.boundary.plot(ax=plot, color='#00000080', linestyle='dotted', linewidth=1)
     
     for axis in (plot.xaxis, plot.yaxis):
         low, high = axis.get_view_interval()
@@ -99,7 +128,7 @@ def shapes_plot(shapes, size=(9, 6), bounds=None):
         axis.set_ticks([lerp(x) for x in (.1, .3, .5, .7, .9)])
         axis.set_major_formatter(matplotlib.ticker.FuncFormatter(format_func))
     
-    figure.tight_layout(pad=.1)
+    plot.figure.tight_layout(pad=.1)
 
     # Add basemap last so plot.get_position() is meaningful in inches
     add_basemap(plot)

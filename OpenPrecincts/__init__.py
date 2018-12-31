@@ -21,3 +21,9 @@ def load_feed(path):
     shapes = geopandas.read_file(f'/vsizip/{path}/shapes.shp')
     
     return Feed(elections, districts, candidates, precincts, sources, shapes)
+
+def add_geometry(data_frame, shapes_frame):
+    '''
+    '''
+    output_frame = pandas.merge(data_frame, shapes_frame, on='shape_id', how='left')
+    return geopandas.GeoDataFrame(output_frame, crs=shapes_frame.crs)

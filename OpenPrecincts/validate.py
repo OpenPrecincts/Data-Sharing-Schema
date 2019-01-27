@@ -99,7 +99,9 @@ def main():
         dest='loglevel', action='store_const', const=logging.ERROR, default=logging.INFO)
     
     args = parser.parse_args()
-    logging.basicConfig(level=args.loglevel)
+    logging.getLogger('fiona').setLevel(logging.WARNING)
+    logging.basicConfig(level=args.loglevel, stream=sys.stdout,
+        style='{', format='{levelname:>8s} {funcName:<32s} {message}')
 
     is_valid = validate_feed_file(args.feed_path)
     exit(0 if is_valid else 1)

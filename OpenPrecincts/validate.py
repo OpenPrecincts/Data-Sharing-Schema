@@ -1,23 +1,6 @@
-import logging, argparse, zipfile, os
+import logging, argparse, zipfile, sys
 import pandas, geopandas
-
-def find_matching_feed_file(zf, role, expected_name):
-    '''
-    '''
-    found_names = [name for name in zf.namelist()
-        if os.path.basename(name).lower() == expected_name.lower()]
-    
-    if not found_names:
-        logging.error('Missing {} file'.format(role))
-        return None
-    
-    found_name, extra_names = found_names[0], found_names[1:]
-    
-    if extra_names:
-        logging.warning('Found extra {} files: {}'.format(role, ', '.join(extra_names)))
-    
-    logging.debug('Found {} file: {}'.format(role, found_name))
-    return found_name
+from .read import find_matching_feed_file
 
 def validate_dataframe_columns(df, path, fields):
     '''
@@ -52,14 +35,14 @@ def validate_feed_elections(zf):
     '''
     '''
     return validate_feed_textfile_fields(zf,
-        find_matching_feed_file(zf, 'elections', 'elections.csv'),
+        find_matching_feed_file(zf, 'elections.csv'),
         ('election_id', 'state_id', 'election_date', 'election_type'))
 
 def validate_feed_districts(zf):
     '''
     '''
     return validate_feed_textfile_fields(zf,
-        find_matching_feed_file(zf, 'districts', 'districts.csv'),
+        find_matching_feed_file(zf, 'districts.csv'),
         ('district_id', 'state_id', 'district_plan', 'district_name',
         'chamber_name', 'shape_id', 'source_id'))
 
@@ -67,7 +50,7 @@ def validate_feed_precincts(zf):
     '''
     '''
     return validate_feed_textfile_fields(zf,
-        find_matching_feed_file(zf, 'precincts', 'precincts.csv'),
+        find_matching_feed_file(zf, 'precincts.csv'),
         ('election_id', 'district_id', 'county_id', 'county_name',
         'precinct_name', 'shape_id', 'source_id'))
 
@@ -75,13 +58,13 @@ def validate_feed_sources(zf):
     '''
     '''
     return validate_feed_textfile_fields(zf,
-        find_matching_feed_file(zf, 'sources', 'sources.csv'),
+        find_matching_feed_file(zf, 'sources.csv'),
         ('source_id', 'source_name', 'source_url'))
 
 def validate_feed_shapes(zf):
     '''
     '''
-    shapes_path = find_matching_feed_file(zf, 'shapes', 'shapes.shp')
+    shapes_path = find_matching_feed_file(zf, 'shapes.shp')
     
     if shapes_path is None:
         return False

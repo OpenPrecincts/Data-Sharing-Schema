@@ -57,3 +57,11 @@ Field Name      | Required  | Description               | Example
 id              | *         | unique ID for source      | OPSRCID:1360711211
 name            | *         | name for source           | NC State Board of Elections
 url             | *         | URL for source            | https://dl.ncsbe.gov/index.html?prefix=PrecinctMaps/
+
+
+## Shapes
+
+Field Name      | Required  | Description               | Example
+----------------|-----------|---------------------------|-------------------
+id              | *         | unique ID for shape       | OPSID:1360711211
+geometry        | *         | (multi)polygon            | ...

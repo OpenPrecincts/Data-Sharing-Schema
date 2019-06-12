@@ -4,21 +4,22 @@
 
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
-id              | *         | unique ID for election    | OPEID:1360711279
+election_id     | *         | unique ID for election    | OPEID:1360711279
 state           | *         | state USPS abbrev         | NC
 date            | *         | date of election          | 2016-11-08
-type            | *         | primary|general           | primary
+election_type   | *         | primary|general           | primary
 
 
 ## Division
 
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
+division_id     | *         | unique ID for division    | OPDID:8283923911
 shape_id        | *         | link to Shape             | OPSID:1360703401
 state           | *         | state USPS abbrev         | NC
-type            | *         | type of shape (enum)      | cd, sldl, sldu, census_block
+division_type   | *         | type of shape (enum)      | cd, sldl, sldu, census_block
 district_plan   |           | identifier for plan(?)    | NC5.1
-name            | *         | name of division          | U.S. House District 2
+division_name   | *         | name of division          | U.S. House District 2
 source_id       | *         | link to Source            | OPSRCID:1360703401
 
 
@@ -28,9 +29,9 @@ Field Name          | Required  | Description               | Example
 --------------------|-----------|---------------------------|-------------------
 id                  | *         | unique ID for candidacy   | OPCID:1489228290
 election_id         | *         | link to Election          | OPEID:1360711279
-division_id         | *         | link to Division          | OPDID:1360711285
-name                |           | candidate name            | David E. Price
-party               | *         | party name                | Democratic
+division_id         | *         | link to Division          | OPSID:1360711285
+candidate_name      |           | candidate name            | David E. Price
+candidate_party     | *         | party name                | Democratic
 is_incumbent        |           | is candidate incumbent?   | Yes
 is_winner           |           | did candidate win?        | Yes
 source_id           |           | link to Source            | OPSRCID:1360703401
@@ -46,7 +47,7 @@ sldu_division_id    |           | link to SLDU Division     | OPDID:1360711286
 sldl_division_id    |           | link to SLDL Division     | OPDID:1360711287
 county_id           |           | FIPS id for county        | FIPS:37001
 county_name         |           | name of county            | Alamance
-name                | *         | name for precinct         | 035_BOONE 5
+precinct_name       | *         | name for precinct         | 035_BOONE 5
 source_id           | *         | link to Source            | OPSRCID:1360703401
 shape_id            | *         | link to Shape             | OPSID:1360703482
 
@@ -55,16 +56,16 @@ shape_id            | *         | link to Shape             | OPSID:1360703482
 
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
-id              | *         | unique ID for source      | OPSRCID:1360711211
-name            | *         | name for source           | NC State Board of Elections
-url             | *         | URL for source            | https://dl.ncsbe.gov/index.html?prefix=PrecinctMaps/
+source_id       | *         | unique ID for source      | OPSRCID:1360711211
+source_name     | *         | name for source           | NC State Board of Elections
+source_url      | *         | URL for source            | https://dl.ncsbe.gov/index.html?prefix=PrecinctMaps/
 
 
 ## Shapes
 
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
-id              | *         | unique ID for shape       | OPSID:1360711211
+shape_id        | *         | unique ID for shape       | OPSID:1360711211
 geometry        | *         | (multi)polygon            | ...
 
 
@@ -73,7 +74,7 @@ geometry        | *         | (multi)polygon            | ...
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 shape_id        | *         | link to shape             | OPSID:1360711211
-type            | *         | demographic type (enum)   | BVAP, TOTALPOP
+demographic_type| *         | demographic type (enum)   | BVAP, TOTALPOP
 value           | *         | numeric value for stat    | 61386
 source_id       | *         | link to a source          | OPSRCID:1253282902
 

@@ -65,3 +65,13 @@ Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 id              | *         | unique ID for shape       | OPSID:1360711211
 geometry        | *         | (multi)polygon            | ...
+
+
+## Demographic
+
+Field Name      | Required  | Description               | Example
+----------------|-----------|---------------------------|-------------------
+shape_id        | *         | link to shape             | OPSID:1360711211
+type            | *         | demographic type (enum)   | BVAP, TOTALPOP
+value           | *         | numeric value for stat    | 61385
+source_id       | *         | link to a source          | OPSRCID:1253282902

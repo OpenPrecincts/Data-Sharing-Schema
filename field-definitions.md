@@ -5,7 +5,7 @@
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 election_id     | *         | unique ID for election    | OPID:1360711279
-state_id        | *         | state FIPS code           | FIPS:37
+state           | *         | state USPS abbrev         | NC
 election_date   | *         | date of election          | 2016-11-08
 election_type   | *         | primary|general           | primary
 
@@ -15,7 +15,7 @@ election_type   | *         | primary|general           | primary
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 district_id     | *         | unique ID for district    | OPID:1360711279
-state_id        | *         | state FIPS code           | FIPS:37
+state           | *         | state USPS abbrev         | NC
 district_plan   | *         | identifier for plan(?)    | NC5.1
 district_name   | *         | name of district          | U.S. House District 2
 chamber_name    | *         | name of chamber           | U.S. House of Representatives

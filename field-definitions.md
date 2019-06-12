@@ -41,9 +41,9 @@ source_id           | *         | link to Source            | OPSRCID:1360703401
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 election_id     | *         | link to Election          | OPEID:1360711279
-district_id     | *         | link to District          | OPDID:1360711285
-county_id       | *         | FIPS id for county        | FIPS:37001
-county_name     | *         | name of county            | Alamance
+district_id     |           | link to District          | OPDID:1360711285
+county_id       |           | FIPS id for county        | FIPS:37001
+county_name     |           | name of county            | Alamance
 name            | *         | name for precinct         | 035_BOONE 5
 source_id       | *         | link to Source            | OPSRCID:1360703401
 shape_id        | *         | link to Shape             | OPSID:1360703482

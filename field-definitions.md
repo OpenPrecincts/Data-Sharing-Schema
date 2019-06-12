@@ -22,17 +22,18 @@ name            | *         | name of division          | U.S. House District 2
 source_id       | *         | link to Source            | OPSRCID:1360703401
 
 
-## Candidates
+## Candidacy
 
 Field Name          | Required  | Description               | Example
 --------------------|-----------|---------------------------|-------------------
+id                  | *         | unique ID for candidacy   | OPCID:1489228290
 election_id         | *         | link to Election          | OPEID:1360711279
 division_id         | *         | link to Division          | OPDID:1360711285
-name                | *         | candidate name            | David E. Price
+name                |           | candidate name            | David E. Price
 party               | *         | party name                | Democratic
-is_incumbent        | *         | is candidate incumbent?   | Yes
-is_winner           | *         | did candidate win?        | Yes
-source_id           | *         | link to Source            | OPSRCID:1360703401
+is_incumbent        |           | is candidate incumbent?   | Yes
+is_winner           |           | did candidate win?        | Yes
+source_id           |           | link to Source            | OPSRCID:1360703401
 
 
 ## Precincts
@@ -73,5 +74,17 @@ Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 shape_id        | *         | link to shape             | OPSID:1360711211
 type            | *         | demographic type (enum)   | BVAP, TOTALPOP
-value           | *         | numeric value for stat    | 61385
+value           | *         | numeric value for stat    | 61386
 source_id       | *         | link to a source          | OPSRCID:1253282902
+
+
+## VoteTotal
+
+Represent a number of votes for a candidacy in a given geographical area.
+
+Field Name      | Required  | Description               | Example
+----------------|-----------|---------------------------|-------------------
+shape_id        | *         | link to shape             | OPSID:1360711211
+candidate_id    | *         | link to candidate         | OPCID:1410711331
+vote_count      | *         | number of votes           | 724
+source_id       | *         | link to a source          : OPSRCID:1258282921

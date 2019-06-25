@@ -41,7 +41,8 @@ Field Name          | Required  | Description               | Example
 --------------------|-----------|---------------------------|-------------------
 candidacy_id        | *         | unique ID for candidacy   | OPCID:1489228290
 election_id         | *         | link to Election          | OPEID:1360711279
-division_id         | *         | link to Division          | OPSID:1360711285
+office_type         | *         | type of office            | cd|sldl|sldu|pres|gov|ltgov
+division_id         |           | link to Division          | OPSID:1360711285
 candidate_name      |           | candidate name            | David E. Price
 candidate_party     | *         | party name                | Democratic
 is_incumbent        |           | is candidate incumbent?   | Yes

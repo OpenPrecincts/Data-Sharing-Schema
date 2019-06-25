@@ -77,6 +77,7 @@ def process_geojson(fname):
                     "locality_name": locality_name,
                     "precinct_name": precinct_name,
                     "shape_id": shape_id,
+                    "source_id": op_src_id,
                     # TODO: district -> cd_division_id
                 }
             )
@@ -87,7 +88,8 @@ def process_geojson(fname):
             if count:
                 count = int(float(count))
             vote_totals.append(
-                {"precinct_id": precinct_id, "candidate_id": cid, "vote_count": count}
+                {"precinct_id": precinct_id, "candidate_id": cid, "vote_count": count,
+                 "source_id": openelections_src}
             )
 
     write_csv("precincts", precincts)
@@ -95,6 +97,29 @@ def process_geojson(fname):
     with open("shapes.json", "w") as f:
         json.dump(gj, f)
 
+
+# write source data
+openelections_src = generate_id("SRC")
+census_map_src = generate_id("SRC")
+op_src_id = generate_id("SRC")
+
+write_csv(
+    "sources",
+    [
+        {"source_id": openelections_src,
+         "source_name": "Open Elections",
+         "source_url": "http://openelections.org",
+         },
+        {"source_id": census_map_src,
+         "source_name": "Census.gov",
+         "source_url": "http://census.gov",
+         },
+        {"source_id": op_src_id,
+         "source_name": "OpenPrecincts.org (aggregated VA data)",
+         "source_url": "https://openprecincts.org/va/",
+         },
+    ]
+)
 
 # write elections data
 ge2016 = generate_id("E")

@@ -15,7 +15,7 @@ date            | *         | date of election          | 2016-11-08
 election_type   | *         | primary|general           | primary
 
 
-## Division
+## Divisions
 
 An administrative division such as a congressional district or census block.
 
@@ -30,7 +30,7 @@ division_name   | *         | name of division          | U.S. House District 2
 source_id       | *         | link to Source            | OPSRCID:1360703401
 
 
-## Candidacy
+## Candidacies
 
 A participant in a given election.
 
@@ -39,7 +39,7 @@ individuals that run in multiple years.)
 
 Field Name          | Required  | Description               | Example
 --------------------|-----------|---------------------------|-------------------
-id                  | *         | unique ID for candidacy   | OPCID:1489228290
+candidacy_id        | *         | unique ID for candidacy   | OPCID:1489228290
 election_id         | *         | link to Election          | OPEID:1360711279
 division_id         | *         | link to Division          | OPSID:1360711285
 candidate_name      |           | candidate name            | David E. Price
@@ -56,7 +56,7 @@ counted in a given jurisdiction.
 
 Field Name          | Required  | Description               | Example
 --------------------|-----------|---------------------------|-------------------
-id                  | *         | unique ID for precinct    | OPPID:1485829328
+precinct_id         | *         | unique ID for precinct    | OPPID:1485829328
 election_id         | *         | link to Election          | OPEID:1360711279
 cd_division_id      |           | link to CD Division       | OPDID:1360711285
 sldu_division_id    |           | link to SLDU Division     | OPDID:1360711286
@@ -87,7 +87,7 @@ shape_id        | *         | unique ID for shape       | OPSID:1360711211
 geometry        | *         | (multi)polygon            | ...
 
 
-## Demographic
+## Demographics
 
 A demographic measurement for a given area.
 
@@ -99,7 +99,7 @@ value           | *         | numeric value for stat    | 61386
 source_id       | *         | link to a source          | OPSRCID:1253282902
 
 
-## VoteTotal
+## Vote Totals
 
 A number of votes for a candidacy in a given precinct.
 

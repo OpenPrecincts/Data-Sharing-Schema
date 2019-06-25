@@ -3,6 +3,8 @@ import csv
 import random
 import json
 
+random.seed(1)
+
 
 FIELD_NAMES = {
     "elections": ("election_id", "state", "date", "election_type"),

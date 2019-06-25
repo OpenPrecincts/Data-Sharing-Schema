@@ -55,18 +55,18 @@ source_id           |           | link to Source            | OPSRCID:1360703401
 A voting tabulation district.  Represents the smallest area at which votes are
 counted in a given jurisdiction.
 
-Field Name          | Required  | Description               | Example
---------------------|-----------|---------------------------|-------------------
-precinct_id         | *         | unique ID for precinct    | OPPID:1485829328
-election_id         | *         | link to Election          | OPEID:1360711279
-cd_division_id      |           | link to CD Division       | OPDID:1360711285
-sldu_division_id    |           | link to SLDU Division     | OPDID:1360711286
-sldl_division_id    |           | link to SLDL Division     | OPDID:1360711287
-county_id           |           | FIPS id for county        | FIPS:37001
-county_name         |           | name of county            | Alamance
-precinct_name       | *         | name for precinct         | 035_BOONE 5
-source_id           | *         | link to Source            | OPSRCID:1360703401
-shape_id            | *         | link to Shape             | OPSID:1360703482
+Field Name          | Required  | Description                   | Example
+--------------------|-----------|-------------------------------|-------------------
+precinct_id         | *         | unique ID for precinct        | OPPID:1485829328
+election_id         | *         | link to Election              | OPEID:1360711279
+cd_division_id      |           | link to CD Division           | OPDID:1360711285
+sldu_division_id    |           | link to SLDU Division         | OPDID:1360711286
+sldl_division_id    |           | link to SLDL Division         | OPDID:1360711287
+locality_id         |           | FIPS id for county-equivalent | FIPS:37001
+locality_name       |           | name of county-equivalent     | Alamance
+precinct_name       | *         | name for precinct             | 035_BOONE 5
+source_id           | *         | link to Source                | OPSRCID:1360703401
+shape_id            | *         | link to Shape                 | OPSID:1360703482
 
 
 ## Sources

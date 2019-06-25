@@ -163,6 +163,9 @@ adams = generate_id("C")
 trump = generate_id("C")
 clinton = generate_id("C")
 johnson = generate_id("C")
+g17_d_hod = generate_id("C")
+g17_r_hod = generate_id("C")
+g17_o_hod = generate_id("C")
 
 CANDIDATES = {
     "G18DSEN": kaine,
@@ -177,7 +180,9 @@ CANDIDATES = {
     "G17RATG": adams,
     "G16DPRS": clinton,
     "G16RPRS": trump,
-    #    "G16OPRS": johnson,
+    "G17DHOD": g17_d_hod,
+    "G17RHOD": g17_r_hod,
+    "G17OHOD": g17_o_hod,
 }
 
 write_csv(
@@ -290,6 +295,24 @@ write_csv(
             "is_incumbent": "no",
             "is_winner": "yes",
             "office_type": "pres",
+        },
+        {
+            "candidacy_id": g17_d_hod,
+            "election_id": ge2017,
+            "candidate_party": "Democratic",
+            "office_type": "sldl",
+        },
+        {
+            "candidacy_id": g17_r_hod,
+            "election_id": ge2017,
+            "candidate_party": "Republican",
+            "office_type": "sldl",
+        },
+        {
+            "candidacy_id": g17_o_hod,
+            "election_id": ge2017,
+            "candidate_party": "Other",
+            "office_type": "sldl",
         },
     ],
 )

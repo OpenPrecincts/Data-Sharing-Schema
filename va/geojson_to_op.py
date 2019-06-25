@@ -179,9 +179,17 @@ adams = generate_id("C")
 trump = generate_id("C")
 clinton = generate_id("C")
 johnson = generate_id("C")
+other_pres = generate_id("C")
 g17_d_hod = generate_id("C")
 g17_r_hod = generate_id("C")
 g17_o_hod = generate_id("C")
+g16_d_hor = generate_id("C")
+g16_r_hor = generate_id("C")
+g16_o_hor = generate_id("C")
+g18_d_hor = generate_id("C")
+g18_r_hor = generate_id("C")
+g18_o_hor = generate_id("C")
+g16_o_pres = generate_id("C")
 
 CANDIDATES = {
     "G18DSEN": kaine,
@@ -196,9 +204,16 @@ CANDIDATES = {
     "G17RATG": adams,
     "G16DPRS": clinton,
     "G16RPRS": trump,
+    "G16OPRS": other_pres,
     "G17DHOD": g17_d_hod,
     "G17RHOD": g17_r_hod,
     "G17OHOD": g17_o_hod,
+    "G16DHOR": g16_d_hor,
+    "G16RHOR": g16_r_hor,
+    "G16OHOR": g16_o_hor,
+    "G18DHOR": g18_d_hor,
+    "G18RHOR": g18_r_hor,
+    "G18OHOR": g18_o_hor,
 }
 
 write_csv(
@@ -297,7 +312,7 @@ write_csv(
         {
             "candidacy_id": clinton,
             "election_id": ge2018,
-            "candidate_name": "Tim Kaine",
+            "candidate_name": "Hillary Clinton",
             "candidate_party": "Democratic",
             "is_incumbent": "no",
             "is_winner": "no",
@@ -310,6 +325,12 @@ write_csv(
             "candidate_party": "Republican",
             "is_incumbent": "no",
             "is_winner": "yes",
+            "office_type": "pres",
+        },
+        {
+            "candidacy_id": other_pres,
+            "election_id": ge2018,
+            "candidate_party": "Other",
             "office_type": "pres",
         },
         {
@@ -329,6 +350,42 @@ write_csv(
             "election_id": ge2017,
             "candidate_party": "Other",
             "office_type": "sldl",
+        },
+        {
+            "candidacy_id": g16_d_hor,
+            "election_id": ge2016,
+            "candidate_party": "Democratic",
+            "office_type": "cd",
+        },
+        {
+            "candidacy_id": g16_r_hor,
+            "election_id": ge2016,
+            "candidate_party": "Republican",
+            "office_type": "cd",
+        },
+        {
+            "candidacy_id": g16_o_hor,
+            "election_id": ge2016,
+            "candidate_party": "Other",
+            "office_type": "cd",
+        },
+        {
+            "candidacy_id": g18_d_hor,
+            "election_id": ge2018,
+            "candidate_party": "Democratic",
+            "office_type": "cd",
+        },
+        {
+            "candidacy_id": g18_r_hor,
+            "election_id": ge2018,
+            "candidate_party": "Republican",
+            "office_type": "cd",
+        },
+        {
+            "candidacy_id": g18_o_hor,
+            "election_id": ge2018,
+            "candidate_party": "Other",
+            "office_type": "cd",
         },
     ],
 )

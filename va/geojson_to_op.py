@@ -68,6 +68,8 @@ def process_geojson(fname):
         shape_id = feature["properties"]["shape_id"] = generate_id("S")
         locality_name = feature["properties"].pop("locality")
         precinct_name = feature["properties"].pop("precinct")
+
+        division_id = districts[int(feature["properties"].pop("district").split()[-1])-1]["division_id"]
         for e in [ge2016, ge2017, ge2018]:
             precinct_id = generate_id("P")
             precincts.append(
@@ -78,7 +80,7 @@ def process_geojson(fname):
                     "precinct_name": precinct_name,
                     "shape_id": shape_id,
                     "source_id": op_src_id,
-                    # TODO: district -> cd_division_id
+                    "cd_division_id": division_id,
                 }
             )
 
@@ -120,6 +122,20 @@ write_csv(
          },
     ]
 )
+
+# write districts data
+districts = []
+for n in range(1, 12):
+    # TODO: add shapes somehow
+    districts.append({
+        "division_id": generate_id("D"),
+        "shape_id": generate_id("S"),
+        "state": "NC",
+        "division_type": "cd",
+        "division_name": str(n),
+        "source_id": census_map_src,
+    })
+write_csv("divisions", districts)
 
 # write elections data
 ge2016 = generate_id("E")

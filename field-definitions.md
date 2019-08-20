@@ -88,14 +88,14 @@ shape_id        | *         | unique ID for shape       | OPSID:1360711211
 geometry        | *         | (multi)polygon            | ...
 
 
-## Demographics
+## Statistic
 
-A demographic measurement for a given area.
+A statistical measurement for a given area.
 
 Field Name      | Required  | Description               | Example
 ----------------|-----------|---------------------------|-------------------
 shape_id        | *         | link to shape             | OPSID:1360711211
-demographic_type| *         | demographic type (enum)   | BVAP, TOTALPOP
+statistic_type  | *         | statistic type (enum)     | BVAP, TOTALPOP
 value           | *         | numeric value for stat    | 61386
 source_id       | *         | link to a source          | OPSRCID:1253282902
 

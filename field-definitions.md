@@ -90,5 +90,5 @@ Field Name      | Required  | Description                 | Example
 division_id     | *         | link to division            | OPDID:1360711211
 statistic_type  | *         | statistic type (enum)       | BVAP, TOTALPOP, VOTE
 candidate_id    |           | link to candidate           | OPCID:1410711331
-value           | *         | numeric value for stat      | 61386
+statistic_value | *         | numeric value for stat      | 61386
 source_id       | *         | link to a source            | OPSRCID:1253282902
